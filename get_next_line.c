@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:38:44 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/06 15:15:24 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:58:32 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*freeall(char *str)
 {
-	str = NULL;
 	free(str);
+	// str = NULL;
 	return (NULL);
 }
 
