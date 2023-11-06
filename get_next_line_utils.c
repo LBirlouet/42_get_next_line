@@ -6,15 +6,15 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:24:53 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/03 15:21:33 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/06 15:16:44 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, size_t c)
 {
-	int				i;
+	size_t	i;
 	char	*ret;
 
     if (!s)
@@ -41,33 +41,22 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	j = 0;
 	if (!s2)
-		return (NULL);
+		return (freeall((void *)s2));
 	size_s1 = ft_strlen(s1);
 	size_s2 = ft_strlen(s2);
 	ret = malloc((size_s1 + size_s2 + 1) * sizeof(char));
 	if (!ret)
-		return (0);
-	ft_strlcpy(ret, s1, size_s1 + 1);
+		return (NULL);
+	ft_strlcpy(ret, s1, (size_s1 + 1));
+	freeall((char *)s1);
 	i = size_s1;
-	while (i < size_s1 + size_s2)
+	while (i < (size_s1 + size_s2))
 	{
 		ret[i] = s2[j++];
 		i++;
 	}
 	ret[i] = 0;
 	return (ret);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != 0)
-		i++;
-	return (i);
 }
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
@@ -83,4 +72,16 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	if (dstsize != 0)
 		dst[i] = 0;
 	return ((size_t)ft_strlen(src));
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	if (!str)
+		return (0);
+	while (str[i] != 0)
+		i++;
+	return (i);
 }
