@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:38:44 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/06 19:23:46 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/23 09:00:39 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*gnl2(int fd, char *tempo)
 			return (NULL);
 		}
 		str[i] = '\0';
-		tempo = ft_strjoin(tempo, str);
+		tempo = ft_strjoin(tempo, str, 0);
 	}
 	free(str);
 	return (tempo);
@@ -81,6 +81,7 @@ char	*refresh(char *tempo)
 		return (NULL);
 	}
 	ret = malloc(sizeof(char) * (ft_strlen(tempo) - i + 1));
+	i += 1;
 	if (!ret)
 		return (NULL);
 	while (tempo[i] != '\0')
@@ -105,25 +106,23 @@ char	*get_next_line(int fd)
 	return (ret);
 }
 
- #include <fcntl.h>
-int main()
-{
-	int i = 95;
-	char	*line = NULL;
-	int fd = open("test", O_RDONLY, 0644);
+//  #include <fcntl.h>
+// int main()
+// {
+// 	int i = 95;
+// 	char	*line = NULL;
+// 	int fd = open("get_next_line.c", O_RDONLY, 0644);
 
-	if (fd == -1)
-		return (1);
-	line = get_next_line(fd);
-	printf("%s", line);
-	line = get_next_line(fd);
-	printf("%s", line);
-	while (i > 80)
-	{
-		free(line);
-		line = get_next_line(fd);
-		printf("%s", line);
-		i--;
-	}
-	return (0);
-}
+// 	if (fd == -1)
+// 		return (1);
+// 	line = get_next_line(fd);
+// 	printf("%s", line);
+// 	while (i > 80)
+// 	{
+// 		free(line);
+// 		line = get_next_line(fd);
+// 		printf("%s", line);
+// 		i--;
+// 	}
+// 	return (0);
+// }

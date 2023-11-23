@@ -6,7 +6,7 @@
 /*   By: lbirloue <lbirloue@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:24:53 by lbirloue          #+#    #+#             */
-/*   Updated: 2023/11/06 19:10:04 by lbirloue         ###   ########.fr       */
+/*   Updated: 2023/11/23 09:05:44 by lbirloue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,9 @@ char	*ft_strchr(char *s, size_t c)
 	return (0);
 }
 
-
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2, size_t j)
 {
 	size_t	i;
-	size_t	j;
 	char	*ret;
 
 	if (!s1)
@@ -48,7 +46,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (ret == NULL)
 		return (NULL);
 	i = -1;
-	j = 0;
 	if (s1)
 		while (s1[++i] != '\0')
 			ret[i] = s1[i];
@@ -58,7 +55,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	free(s1);
 	return (ret);
 }
-
 
 size_t	ft_strlen(char *str)
 {
