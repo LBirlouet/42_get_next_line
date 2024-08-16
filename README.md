@@ -1,3 +1,8 @@
 # get_next_line
 
-The aim of this project is to make a function that returns a line ending with a newline, read from a file descriptor.
+The objective of this project is to create a function that reads from a file descriptor and returns a line that ends with a newline.
+
+## Allowed functions
+- malloc
+- free
+- read
